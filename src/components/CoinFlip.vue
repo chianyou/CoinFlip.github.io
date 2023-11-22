@@ -61,7 +61,7 @@
                                         class="text-2xl xl:text-4xl font-bold generic-hover flex flex-row items-center justify-center gap-4 text-amber-400"
                                         id="bet-btn-heads">
                                         <img src="@/images/cf_heads.png" alt="Heads Icon"
-                                            class="h-6 sm:h-12 xl:h-16 aspect-square" />
+                                            class="h-6 sm:h-12 xl:h-16 aspect-square coin_size" />
                                         Heads
                                     </button>
                                     <button :style="{
@@ -73,7 +73,7 @@
                                         class="text-2xl xl:text-4xl font-bold generic-hover flex flex-row items-center justify-center gap-4 text-white"
                                         id="bet-btn-tails">
                                         <img src="@/images/cf_tails.png" alt="Tails Icon"
-                                            class="h-6 sm:h-12 xl:h-16 aspect-square" />
+                                            class="h-6 sm:h-12 xl:h-16 aspect-square coin_size" />
                                         Tails
                                     </button>
                                 </div>
