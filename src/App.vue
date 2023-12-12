@@ -1,23 +1,31 @@
 <template>
-  <div>
-    <WalletButton msg="The Multi Button"/>
-    <CoinGame msg="Welcome to Your Vue.js App" />
-  </div>
+  <!-- <WalletButton /> -->
+  <CoinFlip />
 </template>
 
 <script>
-import WalletButton from './components/WalletButton.vue';
-import CoinGame from './components/CoinGame.vue'
 import {
-  PhantomWalletAdapter
+  PhantomWalletAdapter,
+  //SolflareWalletAdapter 
 } from '@solana/wallet-adapter-wallets';
 import { initWallet } from 'solana-wallets-vue';
+import CoinFlip from './components/CoinFlip.vue';
+// import WalletButton from './components/WalletButton.vue';
+
+
+
+// const wallets = [
+//     new PhantomWalletAdapter(),
+//     new SolflareWalletAdapter(),
+// ];
+
+// initWallet({ wallets, autoConnect: true });
 
 export default {
   name: 'App',
   components: {
-    WalletButton,
-    CoinGame
+    CoinFlip,
+    // WalletButton
   },
   setup() {
     console.log('Initializing wallet...');
@@ -32,15 +40,8 @@ export default {
     initWallet(walletOptions);
   }
 }
+
+
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>

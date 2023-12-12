@@ -1,162 +1,190 @@
 <template>
   <title>Coinflip</title>
-    <body>
-        <div id="app" data-v-app="">
-            <div class="p-5">
-                <div class="header flex flex-col sm:flex-row gap-5 justify-between p-2 items-center">
-                    <span class=" font-bold title">TradingTrain</span>
-                    <div class="flex flex-row items-center gap-3 justify-center">
-                        <div class="ml-4 flex flex-row gap-3">
-                            <div class="swv-dark">
-                                <div class="swv-dropdown">
-                                    <button class="swv-button swv-button-trigger" aria-expanded="false"
-                                        title="7BdNEdLq8MiYmBXJBhGGEP1NPYnyZGYwfFudt71cKN1J" style="pointer-events: auto;">
+
+  <body>
+    <div id="app" data-v-app="">
+      <div class="p-5">
+        <div class="header flex flex-col sm:flex-row gap-5 justify-between p-2 items-center">
+          <span class=" font-bold title">TradingTrain</span>
+          <div class="flex flex-row items-center gap-3 justify-center">
+            <div class="ml-4 flex flex-row gap-3">
+              <div class="swv-dark">
+                <div class="swv-dropdown">
+                  <WalletButton />
+                  <!-- <button @click="connectWallet" class="swv-button swv-button-trigger" aria-expanded="false">
+                                    <i class="swv-button-icon">
+                                      <img src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjM0IiB3aWR0aD0iMzQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iLjUiIHgyPSIuNSIgeTE9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1MzRiYjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM1NTFiZjkiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9Ii44MiIvPjwvbGluZWFyR3JhZGllbnQ+PGNpcmNsZSBjeD0iMTciIGN5PSIxNyIgZmlsbD0idXJsKCNhKSIgcj0iMTciLz48cGF0aCBkPSJtMjkuMTcwMiAxNy4yMDcxaC0yLjk5NjljMC02LjEwNzQtNC45NjgzLTExLjA1ODE3LTExLjA5NzUtMTEuMDU4MTctNi4wNTMyNSAwLTEwLjk3NDYzIDQuODI5NTctMTEuMDk1MDggMTAuODMyMzctLjEyNDYxIDYuMjA1IDUuNzE3NTIgMTEuNTkzMiAxMS45NDUzOCAxMS41OTMyaC43ODM0YzUuNDkwNiAwIDEyLjg0OTctNC4yODI5IDEzLjk5OTUtOS41MDEzLjIxMjMtLjk2MTktLjU1MDItMS44NjYxLTEuNTM4OC0xLjg2NjF6bS0xOC41NDc5LjI3MjFjMCAuODE2Ny0uNjcwMzggMS40ODQ3LTEuNDkwMDEgMS40ODQ3LS44MTk2NCAwLTEuNDg5OTgtLjY2ODMtMS40ODk5OC0xLjQ4NDd2LTIuNDAxOWMwLS44MTY3LjY3MDM0LTEuNDg0NyAxLjQ4OTk4LTEuNDg0Ny44MTk2MyAwIDEuNDkwMDEuNjY4IDEuNDkwMDEgMS40ODQ3em01LjE3MzggMGMwIC44MTY3LS42NzAzIDEuNDg0Ny0xLjQ4OTkgMS40ODQ3LS44MTk3IDAtMS40OS0uNjY4My0xLjQ5LTEuNDg0N3YtMi40MDE5YzAtLjgxNjcuNjcwNi0xLjQ4NDcgMS40OS0xLjQ4NDcuODE5NiAwIDEuNDg5OS42NjggMS40ODk5IDEuNDg0N3oiIGZpbGw9InVybCgjYikiLz48L3N2Zz4K" alt="Phantom icon">
+                                    </i>
+                                    <p>{{ walletAddress }}</p>
+                                  </button> -->
+                  <!-- <button class="swv-button swv-button-trigger" aria-expanded="false"
+                                        title="7BdNEdLq8MiYmBXJBhGGEP1NPYnyZGYwfFudt71cKN1J" style="pointer-events: auto;" >
                                         <i class="swv-button-icon">
                                             <img src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjM0IiB3aWR0aD0iMzQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iLjUiIHgyPSIuNSIgeTE9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1MzRiYjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM1NTFiZjkiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9Ii44MiIvPjwvbGluZWFyR3JhZGllbnQ+PGNpcmNsZSBjeD0iMTciIGN5PSIxNyIgZmlsbD0idXJsKCNhKSIgcj0iMTciLz48cGF0aCBkPSJtMjkuMTcwMiAxNy4yMDcxaC0yLjk5NjljMC02LjEwNzQtNC45NjgzLTExLjA1ODE3LTExLjA5NzUtMTEuMDU4MTctNi4wNTMyNSAwLTEwLjk3NDYzIDQuODI5NTctMTEuMDk1MDggMTAuODMyMzctLjEyNDYxIDYuMjA1IDUuNzE3NTIgMTEuNTkzMiAxMS45NDUzOCAxMS41OTMyaC43ODM0YzUuNDkwNiAwIDEyLjg0OTctNC4yODI5IDEzLjk5OTUtOS41MDEzLjIxMjMtLjk2MTktLjU1MDItMS44NjYxLTEuNTM4OC0xLjg2NjF6bS0xOC41NDc5LjI3MjFjMCAuODE2Ny0uNjcwMzggMS40ODQ3LTEuNDkwMDEgMS40ODQ3LS44MTk2NCAwLTEuNDg5OTgtLjY2ODMtMS40ODk5OC0xLjQ4NDd2LTIuNDAxOWMwLS44MTY3LjY3MDM0LTEuNDg0NyAxLjQ4OTk4LTEuNDg0Ny44MTk2MyAwIDEuNDkwMDEuNjY4IDEuNDkwMDEgMS40ODQ3em01LjE3MzggMGMwIC44MTY3LS42NzAzIDEuNDg0Ny0xLjQ4OTkgMS40ODQ3LS44MTk3IDAtMS40OS0uNjY4My0xLjQ5LTEuNDg0N3YtMi40MDE5YzAtLjgxNjcuNjcwNi0xLjQ4NDcgMS40OS0xLjQ4NDcuODE5NiAwIDEuNDg5OS42NjggMS40ODk5IDEuNDg0N3oiIGZpbGw9InVybCgjYikiLz48L3N2Zz4K"
                                                 alt="Phantom icon">
                                         </i>
                                         <p>7BdN..KN1J</p>
                                     </button>
-                                    <!-- <ul aria-label="dropdown-list" class="swv-dropdown-list" role="menu">
+                                    <ul aria-label="dropdown-list" class="swv-dropdown-list" role="menu">
                                         <li class="swv-dropdown-list-item" role="menuitem">Copy address</li>
                                         <li class="swv-dropdown-list-item" role="menuitem"> Change wallet </li>
                                         <li class="swv-dropdown-list-item" role="menuitem"> Disconnect </li>
-                                    </ul> -->
-                                </div>
-                            </div>
-                            <button
-                                class="bg-yellow-500 px-3 rounded-md text-sm font-bold generic-hover flex flex-row gap-2 items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
-                                    <path fill="currentColor"
-                                        d="M184 89.57V84c0-25.08-37.83-44-88-44S8 58.92 8 84v40c0 20.89 26.25 37.49 64 42.46V172c0 25.08 37.83 44 88 44s88-18.92 88-44v-40c0-20.7-25.42-37.32-64-42.43Zm-128 57.3C36.41 141.4 24 132.39 24 124v-14.07c8.16 5.78 19.09 10.44 32 13.57Zm80-23.37c12.91-3.13 23.84-7.79 32-13.57V124c0 8.39-12.41 17.4-32 22.87Zm-16 71.37c-19.59-5.47-32-14.48-32-22.87v-4.17c2.63.1 5.29.17 8 .17c3.88 0 7.67-.13 11.39-.35a121.92 121.92 0 0 0 12.61 3.76Zm0-44.62A163 163 0 0 1 96 152a163 163 0 0 1-24-1.75v-23.79A183.74 183.74 0 0 0 96 128a183.74 183.74 0 0 0 24-1.54Zm64 48a165.45 165.45 0 0 1-48 0V174.4a179.48 179.48 0 0 0 24 1.6a183.74 183.74 0 0 0 24-1.54ZM232 172c0 8.39-12.41 17.4-32 22.87V171.5c12.91-3.13 23.84-7.79 32-13.57Z">
-                                    </path>
-                                </svg> Your Flips
-                            </button>
-                            <button
-                                class="bg-yellow-500 px-3 rounded-md text-sm font-bold generic-hover flex flex-row gap-2 items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                                    <path fill="#ffffff" d="M2 21V9h5.5v12H2Zm7.25 0V3h5.5v18h-5.5Zm7.25 0V11H22v10h-5.5Z">
-                                    </path>
-                                </svg> Leaderboard
-                            </button>
-                        </div>
-                    </div>
+                                    </ul>  -->
                 </div>
-                <div class="flex flex-col transition-transform overflow-hidden lg:flex-row lg:gap-12 container justify-center items-center mx-auto rounded-md font-ocr overflow-y-auto border-4 border-[#ffff5b] bg-[#212c42cc] backdrop-blur-sm"
-                    style="position: relative;">
-                    <div class="m-2 sm:p-12 flex flex-col items-center justify-center w-full lg:w-1/2 relative">
-                        <button class="sr-only" id="your-flips-btn">
-                            Your Flips
-                        </button>
-                        <h1 class="text-4xl mt-10 sr-only">Casino - Coinflip</h1>
-                        <div id="bet-panel" class="m-2 w-full px-6 py-8 rounded-md bg-t-blue/75 relative">
-                            <div id="bet-contents" class="">
-                                <div class="grid grid-cols-2 gap-2 text-white my-5">
-                                    <button :style="{
-                                        backgroundImage: 'url(' + require('../images/btn-active.svg') + ')',
-                                        backgroundSize: 'contain',
-                                        backgroundRepeat: 'no-repeat',
-                                        aspectRatio: '2.86047 / 1'
-                                    }"
-                                        class="text-2xl xl:text-4xl font-bold generic-hover flex flex-row items-center justify-center gap-4 text-amber-400"
-                                        id="bet-btn-heads">
-                                        <img src="@/images/cf_heads.png" alt="Heads Icon"
-                                            class="h-6 sm:h-12 xl:h-16 aspect-square coin_size" />
-                                        Heads
-                                    </button>
-                                    <button :style="{
-                                        backgroundImage: 'url(' + require('@/images/btn-inactive.svg') + ')',
-                                        backgroundSize: 'contain',
-                                        backgroundRepeat: 'no-repeat',
-                                        aspectRatio: '2.86047 / 1'
-                                    }"
-                                        class="text-2xl xl:text-4xl font-bold generic-hover flex flex-row items-center justify-center gap-4 text-white"
-                                        id="bet-btn-tails">
-                                        <img src="@/images/cf_tails.png" alt="Tails Icon"
-                                            class="h-6 sm:h-12 xl:h-16 aspect-square coin_size" />
-                                        Tails
-                                    </button>
-                                </div>
-                                <p class="text-left text-lg" for="bet">Betting Amount</p>
-                                <div class="flex flex-row items-center my-3 bg-t-smoke rounded-md border-2 border-white">
-                                    <div class="relative rounded-l-md bg-gray-600 hover:opacity-75 p-2">
-                                        <select name="Currency"
-                                            class="w-full h-full absolute left-0 top-0 bg-transparent text-transparent cursor-pointer"
-                                            id="currency-select">
-                                            <option class="text-black" default="true" value="[object Object]"
-                                                style="background-image: url(&quot;/icons/solana.svg&quot;);">SOL</option>
-                                            <option class="text-black" default="false" value="[object Object]"
-                                                style="background-image: url(&quot;/icons/solana.svg&quot;);">Graphite
-                                            </option>
-                                        </select>
-                                        <span
-                                            class="after:content-['⌄'] after:absolute pr-4 after:right-1 after:bottom-3">SOL</span>
-                                    </div>
-                                    <input type="number" id="bet" max="0" min="0.01" step="0.01"
-                                        class="bg-t-smoke text-white h-[100%] text-2xl flex-grow overflow-hidden rounded-r-md outline-none pl-2">
-                                </div>
-                                <p class="text-left text-[#939393] text-lg"> Wallet Balance: 0.00000 SOL
-                                </p>
-                                <p class="text-left text-[#939393]">
-                                    You will be charged 0.05125 SOL + 0.003 SOL Fee
-                                </p>
-                                <p class="text-red-500">
-                                    You do not have the balance required to make this bet
-                                </p>
-                                <button :style="{
-                                    backgroundImage: 'url(' + require('@/images/btn-bet.svg') + ')',
-                                    backgroundSize: 'contain',
-                                    backgroundRepeat: 'no-repeat',
-                                    aspectRatio: '6.10843 / 1'
-                                }"
-                                    class="w-full text-xl xl:text-3xl sm:px-7 sm:py-5 generic-hover disabled:opacity-75 disabled:cursor-not-allowed mt-10"
-                                    disabled>
-                                    FLIP HEADS
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-12 flex-1">
-                      <h1 class="text-xl mt-10 mb-4 font-ocr text-center">Recent Plays</h1>
-                      <div class="recent-plays rounded-md w-full flex flex-col gap-3 mb-10 font-ocr"
-                          style="position: relative;">
-                          <div v-for="(play, index) in recentPlays" :key="index"
-                              class="flex flex-row justify-between items-center p-2 bg-t-blue/75 rounded-md">
-                              <div>
-                                  <div class="flex flex-row justify-center gap-2 items-center">
-                                      <img :src="play.imageSrc" class="p-0.5" :alt="play.imageAlt" width="48">
-                                      <p>
-                                          <span>{{ play.userName }}</span> flipped {{ play.amount }} Graphite on
-                                          {{ play.coinSide }} and
-                                          <span
-                                              :class="{ 'font-bold text-green-500': play.result === 'doubled', 'font-bold text-red-500': play.result === 'rugged' }">
-                                              {{ play.result === 'doubled' ? 'doubled!' : 'got rugged.' }}
-                                          </span>
-                                      </p>
-                                  </div>
-                                  <p class="px-2 hidden">{{ play.timeAgo }}</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
               </div>
+              <button
+                class="bg-yellow-500 px-3 rounded-md text-sm font-bold generic-hover flex flex-row gap-2 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                  <path fill="currentColor"
+                    d="M184 89.57V84c0-25.08-37.83-44-88-44S8 58.92 8 84v40c0 20.89 26.25 37.49 64 42.46V172c0 25.08 37.83 44 88 44s88-18.92 88-44v-40c0-20.7-25.42-37.32-64-42.43Zm-128 57.3C36.41 141.4 24 132.39 24 124v-14.07c8.16 5.78 19.09 10.44 32 13.57Zm80-23.37c12.91-3.13 23.84-7.79 32-13.57V124c0 8.39-12.41 17.4-32 22.87Zm-16 71.37c-19.59-5.47-32-14.48-32-22.87v-4.17c2.63.1 5.29.17 8 .17c3.88 0 7.67-.13 11.39-.35a121.92 121.92 0 0 0 12.61 3.76Zm0-44.62A163 163 0 0 1 96 152a163 163 0 0 1-24-1.75v-23.79A183.74 183.74 0 0 0 96 128a183.74 183.74 0 0 0 24-1.54Zm64 48a165.45 165.45 0 0 1-48 0V174.4a179.48 179.48 0 0 0 24 1.6a183.74 183.74 0 0 0 24-1.54ZM232 172c0 8.39-12.41 17.4-32 22.87V171.5c12.91-3.13 23.84-7.79 32-13.57Z">
+                  </path>
+                </svg> Your Flips
+              </button>
+              <button
+                class="bg-yellow-500 px-3 rounded-md text-sm font-bold generic-hover flex flex-row gap-2 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                  <path fill="#ffffff" d="M2 21V9h5.5v12H2Zm7.25 0V3h5.5v18h-5.5Zm7.25 0V11H22v10h-5.5Z">
+                  </path>
+                </svg> Leaderboard
+              </button>
+            </div>
           </div>
+        </div>
+        <div
+          class="flex flex-col transition-transform overflow-hidden lg:flex-row lg:gap-12 container justify-center items-center mx-auto rounded-md font-ocr overflow-y-auto border-4 border-[#ffff5b] bg-[#212c42cc] backdrop-blur-sm"
+          style="position: relative;">
+          <div class="m-2 sm:p-12 flex flex-col items-center justify-center w-full lg:w-1/2 relative">
+            <button class="sr-only" id="your-flips-btn">
+              Your Flips
+            </button>
+            <h1 class="text-4xl mt-10 sr-only">Casino - Coinflip</h1>
+            <div id="bet-panel" class="m-2 w-full px-6 py-8 rounded-md bg-t-blue/75 relative">
+              <div id="bet-contents" class="">
+                <div class="grid grid-cols-2 gap-2 text-white my-5">
+                  <button @click="setBetOption('head')" :style="{
+                    backgroundImage: `url(${activeOption === 'head' ? require('../images/btn-active.svg') : require('@/images/btn-inactive.svg')})`,
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    aspectRatio: '2.86047 / 1'
+                  }"
+                    class="text-2xl xl:text-4xl font-bold generic-hover flex flex-row items-center justify-center gap-4 text-amber-400"
+                    id="bet-btn-heads">
+                    <img src="@/images/cf_heads.png" alt="Heads Icon"
+                      class="h-6 sm:h-12 xl:h-16 aspect-square coin_size" />
+                    Heads
+                  </button>
+                  <button @click="setBetOption('tail')" :style="{
+                    backgroundImage: `url(${activeOption === 'tail' ? require('../images/btn-active.svg') : require('@/images/btn-inactive.svg')})`,
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    aspectRatio: '2.86047 / 1'
+                  }"
+                    class="text-2xl xl:text-4xl font-bold generic-hover flex flex-row items-center justify-center gap-4 text-white"
+                    id="bet-btn-tails">
+                    <img src="@/images/cf_tails.png" alt="Tails Icon"
+                      class="h-6 sm:h-12 xl:h-16 aspect-square coin_size" />
+                    Tails
+                  </button>
+                </div>
+                <p class="text-left text-lg" for="bet">Betting Amount</p>
+                <div class="flex flex-row items-center my-3 bg-t-smoke rounded-md border-2 border-white">
+                  <div class="relative rounded-l-md bg-gray-600 hover:opacity-75 p-2">
+                    <select name="Currency"
+                      class="w-full h-full absolute left-0 top-0 bg-transparent text-transparent cursor-pointer"
+                      id="currency-select" v-model="selectedCurrency">
+                      <option class="text-black" default="true" value="SOL">SOL</option>
+                      <option class="text-black" default="false" value="Graphite">Graphite
+                      </option>
+                    </select>
+                    <span class="after:content-['⌄'] after:absolute pr-4 after:right-1 after:bottom-3">{{selectedCurrency}}</span>
+                  </div>
+                  <input type="text" id="bet" max="0" min="0.01" step="0.01" v-model="inputValue" @input="handleInput"
+                    class="bg-t-smoke text-white h-[100%] text-2xl flex-grow overflow-hidden rounded-r-md outline-none pl-2">
+                    <div v-if="inputError" class="text-red-500">{{inputError}}</div>
+                </div>
+                <p class="text-left text-[#939393] text-lg"> Wallet Balance: 0.00000 SOL
+                </p>
+                <p class="text-left text-[#939393]">
+                  You will be charged 0.05125 SOL + 0.003 SOL Fee
+                </p>
+                <p class="text-red-500">
+                  You do not have the balance required to make this bet
+                </p>
+                <button :style="{
+                  backgroundImage: 'url(' + require('@/images/btn-bet.svg') + ')',
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                  aspectRatio: '6.10843 / 1'
+                }"
+                  class="w-full text-xl xl:text-3xl sm:px-7 sm:py-5 generic-hover disabled:opacity-75 disabled:cursor-not-allowed mt-10"
+                  disabled>
+                  {{ `FLIP ${betOption.toUpperCase()}` }}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="p-12 flex-1">
+            <h1 class="text-xl mt-10 mb-4 font-ocr text-center">Recent Plays</h1>
+            <div class="recent-plays rounded-md w-full flex flex-col gap-3 mb-10 font-ocr" style="position: relative;">
+              <div v-for="(play, index) in recentPlays" :key="index"
+                class="flex flex-row justify-between items-center p-2 bg-t-blue/75 rounded-md">
+                <div>
+                  <div class="flex flex-row justify-center gap-2 items-center">
+                    <img :src="play.imageSrc" class="p-0.5" :alt="play.imageAlt" width="48">
+                    <p>
+                      <span>{{ play.userName }}</span> flipped {{ play.amount }} Graphite on
+                      {{ play.coinSide }} and
+                      <span
+                        :class="{ 'font-bold text-green-500': play.result === 'doubled', 'font-bold text-red-500': play.result === 'rugged' }">
+                        {{ play.result === 'doubled' ? 'doubled!' : 'got rugged.' }}
+                      </span>
+                    </p>
+                  </div>
+                  <p class="px-2 hidden">{{ play.timeAgo }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <canvas width="2116" height="1330"
-          style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 1000; pointer-events: none;"></canvas>
+    </div>
+    <canvas width="2116" height="1330"
+      style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 1000; pointer-events: none;"></canvas>
   </body>
 </template>
 
 <script setup>
+import WalletButton from './WalletButton.vue';
+import { ref, onMounted } from 'vue'; //onMounted
+//add
+import { useWallet } from "solana-wallets-vue";
+import { clusterApiUrl, PublicKey } from '@solana/web3.js'; //PublicKey
+import * as anchor from '@project-serum/anchor';
 
-// export default {
-//     name: 'HelloWorld',
-//     props: {
-//         msg: String
-//     }
-// }
+const betOption = ref('head'); 
+const activeOption = ref('head');
+const selectedCurrency = ref('SOL');
+const inputValue = ref('');
+const inputError = ref('');
+const handleInput = () => {
+  // 使用正则表达式检查是否包含非数字字符
+  if (/[^0-9.]/.test(inputValue.value)) {
+    inputError.value = 'only numbers';
+  } else {
+    inputError.value = '';
+  }
 
-import { ref } from 'vue';
+  // 处理小数点的逻辑
+  const dotIndex = inputValue.value.indexOf('.');
+  if (dotIndex !== -1) {
+    const afterDot = inputValue.value.substring(dotIndex + 1);
+    if (afterDot.indexOf('.') !== -1) {
+      inputValue.value = inputValue.value.slice(0, -1);
+    }
+  }
+};
+
+
 
 const recentPlays = ref([
   {
@@ -216,6 +244,62 @@ const recentPlays = ref([
   // Add more play objects here with similar structure
 ]);
 
+
+
+const wallet = useWallet();
+
+if (!wallet) {
+  console.error('Wallet is null. Initialization failed.');
+  // 在这里添加错误处理逻辑，例如抛出错误或执行其他操作
+}
+
+wallet.publicKey = wallet.publicKey.value ?? wallet.publicKey;
+wallet.signAllTransactions = wallet.signAllTransactions.value ?? wallet.signAllTransactions;
+console.log('wallet:', wallet.publicKey.toBase58);
+
+const COINGAME_PROGRAM_ADDRESS = new PublicKey("7m69C1L22UGQs4NBiyDaPvVz6WRiXKTiPTt1im2hr3Fw");
+
+const connection = new anchor.web3.Connection(clusterApiUrl('devnet'));
+const provider = new anchor.AnchorProvider(connection, wallet);
+console.log('provider:', provider);
+
+let idl;
+let program;
+
+// 定义 setBetOption 方法
+const setBetOption = (option) => {
+  betOption.value = option;
+  activeOption.value = option; //設置activeOption的值
+};
+
+
+async function findProgram() {
+  console.log('Setting......');
+  // connect to program
+  try {
+    let retryCount = 0;
+    while (!idl && retryCount < 5) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      idl = await anchor.Program.fetchIdl(COINGAME_PROGRAM_ADDRESS, provider);
+      retryCount++;
+    }
+
+    if (!idl) {
+      console.error('IDL is still null after multiple retries. Initialization failed.');
+      // 在这里添加错误处理逻辑，例如抛出错误或执行其他操作
+    } else {
+      program = new anchor.Program(idl, COINGAME_PROGRAM_ADDRESS, provider);
+      console.log('program:', program);
+    }
+  } catch (error) {
+    console.error('Failed to fetch IDL:', error);
+  }
+}
+
+// 在mounted生命周期钩子中调用findProgram
+onMounted(() => {
+  findProgram();
+});
 </script>
 
 <style>
@@ -233,10 +317,12 @@ const recentPlays = ref([
   /* letter-spacing: 0px; */
   font-weight: 900;
 }
-.coin_size{
+
+.coin_size {
   margin-top: 5px;
-  
+
 }
+
 *,
 :before,
 :after {
@@ -3386,4 +3472,5 @@ body.swal2-toast-shown .swal2-container.swal2-bottom {
 body.swal2-toast-shown .swal2-container.swal2-bottom-end,
 body.swal2-toast-shown .swal2-container.swal2-bottom-right {
   inset: auto 0 0 auto
-}</style>
+}
+</style>
